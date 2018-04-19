@@ -1,4 +1,5 @@
 #include <Arduboy2.h>
+#include <EEPROM.h>
 
 const unsigned char PROGMEM Resume[] =
 {
@@ -19,18 +20,15 @@ Arduboy2 arduboy;
 void setup(void)
 {
   arduboy.begin();
+  arduboy.clear();
 }
 
 void loop(void)
 {
   if(!arduboy.nextFrame())
     return;
-    
-  arduboy.clear();
 
-  //arduboy.setTextWrap(true);
   arduboy.setCursor(0, 12);
-  //arduboy.setTextSize(0.5);
   arduboy.print("Carlo\nNamoca\n\nMobile\nDeveloper");
   
   arduboy.fillRect(64, 0, 64, 64);
